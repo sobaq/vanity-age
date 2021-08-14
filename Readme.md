@@ -17,4 +17,4 @@ Where `query` is a valid `fnmatch` query. Try
 
 for information about fnmatch.
 
-The output is identical to `age-keyen`.
+The output is identical to `age-keygen`.
