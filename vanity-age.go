@@ -16,7 +16,7 @@ const THREADS = 8
 
 func main() {
 	if len(os.Args) == 1 {
-		fmt.Println(`ERROR: No regular expression provided. Please specify a valid regular expression in the case of: regexp.MatchString("[your_regexp]", "age1*********************************************************"). age keys are 58 characters long, in all lowercase, excluding 'age1' prefix. Some characters are omitted like o, e, etc.`)
+		fmt.Println(`ERROR: No regular expression provided. Please specify a valid regular expression in the case of: regexp.MatchString("[your_regexp]", "age1*********************************************************"). age keys are 58 characters long, in all lowercase, excluding 'age1' prefix. Exceedingly notable to the author is that the charactes "b", "i", and "o" are not present in any age public key.`)
 		return
 	}
 
