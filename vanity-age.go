@@ -16,11 +16,11 @@ const THREADS = 8
 
 func main() {
 	if len(os.Args) == 1 {
-		fmt.Println(`ERROR: No regular expression provided. Please specify a valid regular expression in the case of: regexp.MatchString("[your_regexp]", "age1*********************************************************"). age keys are 58 characters long, in all lowercase, excluding 'age1' prefix. Exceedingly notable to the author is that the charactes "b", "i", and "o" are not present in any age public key.`)
+		fmt.Println(`ERROR: No regular expression provided. Please specify a valid regular expression in the case of: regexp.MatchString("[your_regexp]", "age1*********************************************************"). age keys are 58 characters long, in all lowercase, excluding 'age1' prefix. Exceedingly notable to the author is that the charactes "b", "i", "o", and "1" after the first "1" in "age1"  are not present in any age public key.`)
 		return
 	}
 
-	m, err := regexp.MatchString("[bio]", os.Args[1])
+	m, err := regexp.MatchString("[1bio]", os.Args[1])
 	if err != nil {
 		fmt.Println("ERROR: Unable to process this regexp") 
 		fmt.Println(err.Error())
@@ -28,7 +28,7 @@ func main() {
 	}
 
 	if (m) {
-		fmt.Println(`Query string contains one of: [bio]`)
+		fmt.Println(`Query string contains one of: [1bio]`)
 		return
 	}
 
