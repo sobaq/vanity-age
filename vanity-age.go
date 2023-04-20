@@ -12,7 +12,7 @@ import (
 )
 
 // Probably doesn't need to be any more than the number of cores you have
-const THREADS = 8 
+const THREADS = 4
 
 func main() {
 	if len(os.Args) == 1 {
