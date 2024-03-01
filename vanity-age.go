@@ -8,7 +8,6 @@ import (
 	"time"
 
 	"filippo.io/age"
-
 )
 
 // Probably doesn't need to be any more than the number of cores you have
@@ -22,12 +21,12 @@ func main() {
 
 	m, err := regexp.MatchString("[1bio]", os.Args[1])
 	if err != nil {
-		fmt.Println("ERROR: Unable to process this regexp") 
+		fmt.Println("ERROR: Unable to process this regexp")
 		fmt.Println(err.Error())
 		return
 	}
 
-	if (m) {
+	if m {
 		fmt.Println(`Query string contains one of: [1bio]`)
 		return
 	}
@@ -35,7 +34,7 @@ func main() {
 	query := "^age1(" + strings.ToLower(os.Args[1]) + ")$"
 
 	keyChan := make(chan *age.X25519Identity)
-	
+
 	for i := 0; i < THREADS; i++ {
 		go generate(query, keyChan)
 	}
@@ -50,13 +49,13 @@ func main() {
 func generate(query string, keyChan chan *age.X25519Identity) {
 	for {
 		k, _ := age.GenerateX25519Identity()
-		m, err := regexp.MatchString(query, k.Recipient().String())	
+		m, err := regexp.MatchString(query, k.Recipient().String())
 		if err != nil {
 			fmt.Println(err.Error())
 			return
 		}
 
-		if (m) {
+		if m {
 			keyChan <- k
 		}
 	}

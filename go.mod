@@ -1,8 +1,10 @@
 module vanity-age
 
-go 1.16
+go 1.22
+
+require filippo.io/age v1.1.1
 
 require (
-	filippo.io/age v1.0.0-rc.3 // indirect
-	github.com/danwakefield/fnmatch v0.0.0-20160403171240-cbb64ac3d964 // indirect
+	golang.org/x/crypto v0.4.0 // indirect
+	golang.org/x/sys v0.3.0 // indirect
 )
